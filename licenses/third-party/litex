@@ -1,9 +1,9 @@
-Scanned Source License litex-c43132f81f1113e83780571b10d004974fe361de/LICENSE:
+Scanned Source License litex-6b3eda16f23d485ebcb13739b2f53d108d8e5451/LICENSE:
 
 LiteX is a Migen/MiSoC based Core/SoC builder that provides the infrastructure to
 easily create Cores/SoCs.
 
-Unless otherwise noted, LiteX is copyright (C) 2012-2020 Enjoy-Digital.
+Unless otherwise noted, LiteX is copyright (C) 2012-2022 Enjoy-Digital.
 Unless otherwise noted, MiSoC is copyright (C) 2012-2015 Enjoy-Digital.
 Unless otherwise noted, MiSoC is copyright (C) 2007-2015 M-Labs Ltd.
 All rights reserved.
@@ -34,8 +34,10 @@ reasonably be considered independently copyrightable, it's yours and we
 encourage you to claim it with appropriate copyright notices. This submission
 then falls under the "otherwise noted" category. All submissions are strongly
 encouraged to use the two-clause BSD license reproduced above.
+
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-Scanned Source License litex-c43132f81f1113e83780571b10d004974fe361de/litex.egg-info/PKG-INFO:
+
+Scanned Source License litex-6b3eda16f23d485ebcb13739b2f53d108d8e5451/litex.egg-info/PKG-INFO:
 
 Metadata-Version: 1.2
 Name: litex
@@ -57,3 +59,5 @@ Classifier: License :: OSI Approved :: BSD License
 Classifier: Operating System :: OS Independent
 Classifier: Programming Language :: Python
 Requires-Python: ~=3.6
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
