@@ -12,16 +12,18 @@ mkdir -p "$ROOT_DIR/firmware-signed/$MILESTONE-$VERSION"
 cd "$ROOT_DIR/firmware-signed/$MILESTONE-$VERSION"
 
 GSUTIL_ROOT="gs://chromeos-releases/canary-channel/brya/$VERSION"
-gsutil.py cp \
-    "$GSUTIL_ROOT/chromeos_${VERSION}_brya_hps_firmware_canary-channel_hps-accessory-mp.bin" \
-    mcu_stage1.bin
+# TODO(b/222000200): uncomment this when we want MP-signed firmware
+#gsutil.py cp \
+#    "$GSUTIL_ROOT/chromeos_${VERSION}_brya_hps_firmware_canary-channel_hps-accessory-mp.bin" \
+#    mcu_stage1.bin
 gsutil.py cp \
     "$GSUTIL_ROOT/ChromeOS-hps_firmware-$MILESTONE-$VERSION-brya.tar.bz2" \
     .
 
 tar --strip-components=1 -xvf \
     "ChromeOS-hps_firmware-$MILESTONE-$VERSION-brya.tar.bz2" \
-    hps/fpga_bitstream.bin hps/fpga_application.bin
+    hps/mcu_stage1.bin hps/fpga_bitstream.bin hps/fpga_application.bin
+#    hps/fpga_bitstream.bin hps/fpga_application.bin
 
 cp mcu_stage1.bin fpga_bitstream.bin fpga_application.bin ..
 cd ..
