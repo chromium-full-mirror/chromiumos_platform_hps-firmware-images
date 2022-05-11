@@ -21,19 +21,22 @@ gsutil.py cp \
 
 tar --strip-components=1 -xvf \
     "ChromeOS-hps_firmware-$MILESTONE-$VERSION-brya.tar.bz2" \
-    hps/fpga_bitstream.bin hps/fpga_application.bin
+    hps/fpga_bitstream.bin hps/fpga_application.bin hps/manifest.txt
 
-cp mcu_stage1.bin fpga_bitstream.bin fpga_application.bin ..
+cp mcu_stage1.bin fpga_bitstream.bin fpga_application.bin manifest.txt ..
 cd ..
 
-git add mcu_stage1.bin fpga_bitstream.bin fpga_application.bin
+git add mcu_stage1.bin fpga_bitstream.bin fpga_application.bin manifest.txt
 git commit -m "Update signed binaries from $MILESTONE-$VERSION
 
 BUG=b:204378599
 TEST=None
 "
 
-echo "Reminder to test these files:"
-echo "scp mcu_stage1.bin fpga_bitstream.bin fpga_application.bin dut:/usr/lib/firmware/hps/"
-echo "ssh dut stop hpsd \; start hpsd"
-echo "ssh dut tail -f /var/log/messages \| grep hps"
+cat <<EOF
+Reminder to test these files:
+scp mcu_stage1.bin fpga_bitstream.bin fpga_application.bin manifest.txt \
+dut:/usr/lib/firmware/hps/
+ssh dut stop hpsd ; start hpsd
+ssh dut tail -f /var/log/messages | grep hps
+EOF
