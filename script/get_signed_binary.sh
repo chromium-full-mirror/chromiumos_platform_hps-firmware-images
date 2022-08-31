@@ -29,14 +29,15 @@ cd ..
 git add mcu_stage1.bin fpga_bitstream.bin fpga_application.bin manifest.txt
 git commit -m "Update signed binaries from $MILESTONE-$VERSION
 
-BUG=b:204378599
+BUG=
 TEST=None
 "
 
 cat <<EOF
 Reminder to test these files:
-scp mcu_stage1.bin fpga_bitstream.bin fpga_application.bin manifest.txt \
-dut:/usr/lib/firmware/hps/
+cros workon --board=brya start hps-firmware-images
+emerge-brya hps-firmware-images
+cros deploy dut hps-firmware-images && ssh dut restart hpsd
 ssh dut stop hpsd ; start hpsd
 ssh dut tail -f /var/log/messages | grep hps
 EOF
